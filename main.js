@@ -29,7 +29,22 @@
  *
  */
 
-function makeCountingFunction() { // should accept a predicate function as an argument
+function makeCountingFunction(callback) { 
+
+    return function (arr) {
+        let oddCount = 0
+        for(i = 0; i < arr.length; i++){
+            if(isOdd(arr[i])) {
+                oddCount += 1
+            }
+        }
+        return oddCount
+    }
+
+}
+    
+    
+    // should accept a predicate function as an argument
     // return another function
 
         // iterate through an array and apply the predicate function to each item in that array
@@ -37,10 +52,16 @@ function makeCountingFunction() { // should accept a predicate function as an ar
             // increment a counter based on the result of applying the predicate function to that item
         
         // return the final count.
-}
+
 
 // should accept a predicate function as an argument
-function isOdd() {}
+function isOdd(num) {
+    if(num % 2 !== 0) {
+        return true
+    }else {
+        return false
+    }
+}
 
 // =============================================================================
 // The code below should work without modification.
